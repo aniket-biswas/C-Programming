@@ -16,11 +16,12 @@ int main() {
         num /= 10;
     }
 
+    printf("Reversed Number:%d\n", reversedNum);
     // Check if the original number is equal to the reversed number
     if (originalNum == reversedNum) {
         printf("%d is a palindrome.\n", originalNum);
     } else {
-        printf("%d is not a palindrome.\n", originalNum);
+        printf("%d is not a palindrome.\n", reversedNum);
     }
 
     return 0;
