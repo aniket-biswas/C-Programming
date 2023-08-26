@@ -40,3 +40,26 @@ int main() {
 
     return 0;
 }
+
+// Algorithm:
+
+// 1. Start
+// 2. Initialize num, primeCount, and compositeCount to 0
+// 3. Print "Enter numbers."
+// 4. Print "Enter -1 to stop."
+// 5. Loop:
+//    1. Print "Enter a number: "
+//    2. Read num
+//    3. If num is equal to -1, go to step 6
+//    4. If num is less than or equal to 1, go to step 5.1
+//    5. If isPrime(num) returns true, go to step 5.2
+//    6. Else, go to step 5.3
+// 6. Print "Total prime numbers:", primeCount
+// 7. Print "Total composite numbers:", compositeCount
+// 8. End
+
+// Function isPrime(num):
+// 1. If num is less than or equal to 1, return 0
+// 2. Loop i from 2 to the square root of num:
+//    1. If num is divisible by i, return 0
+// 3. Return 1
