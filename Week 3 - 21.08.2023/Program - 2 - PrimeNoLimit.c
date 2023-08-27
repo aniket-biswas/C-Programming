@@ -1,19 +1,4 @@
 #include <stdio.h>
-#include <stdbool.h>
-
-bool is_prime(int num) {
-    if (num <= 1) {
-        return false;
-    }
-    
-    for (int i = 2; i * i <= num; i++) {
-        if (num % i == 0) {
-            return false;
-        }
-    }
-    
-    return true;
-}
 
 int main() {
     int lower_limit, upper_limit;
@@ -34,9 +19,22 @@ int main() {
     int current_num = lower_limit;
     printf("Prime numbers between %d and %d:\n", lower_limit, upper_limit);
     while (current_num <= upper_limit) {
-        if (is_prime(current_num)) {
+        int is_prime = 1; // Assume the number is prime initially
+        if (current_num <= 1) {
+            is_prime = 0; // Numbers less than or equal to 1 are not prime
+        } else {
+            for (int i = 2; i * i <= current_num; i++) {
+                if (current_num % i == 0) {
+                    is_prime = 0; // Number is not prime
+                    break;
+                }
+            }
+        }
+        
+        if (is_prime) {
             printf("%d ", current_num);
         }
+        
         current_num++;
     }
     printf("\n");
@@ -45,7 +43,7 @@ int main() {
 }
 
 
-// Algorithm to Generate Prime Numbers Between Two Limits:
+// Algorithm:
 
 // 1. Start
 // 2. Declare variables: lower_limit, upper_limit, current_num
@@ -54,18 +52,18 @@ int main() {
 // 5. Display "Enter the upper limit: "
 // 6. Read upper_limit from the user
 // 7. If lower_limit < 2, then
-//       Set lower_limit = 2
+//      Set lower_limit = 2
 // 8. Set current_num = lower_limit
 // 9. Display "Prime numbers between lower_limit and upper_limit:"
 // 10. While current_num <= upper_limit, do the following:
-//     a. Set is_prime = true
-//     b. If current_num <= 1, then
-//          Set is_prime = false
-//     c. For i = 2 to the square root of current_num, do the following:
-//          i. If current_num is divisible by i, then
-//             Set is_prime = false
-//             Break the loop
-//     d. If is_prime is true, then
-//          Display current_num followed by a space
-//     e. Increment current_num by 1
+//      a. Set is_prime = 1 // Assume current_num is prime
+//      b. If current_num <= 1, then
+//           Set is_prime = 0 // Numbers <= 1 are not prime
+//      c. For i = 2 to the square root of current_num, do the following:
+//           i. If current_num is divisible by i, then
+//                Set is_prime = 0 // Number is not prime
+//                Break the loop
+//      d. If is_prime is true, then
+//           Display current_num followed by a space
+//      e. Increment current_num by 1
 // 11. End
