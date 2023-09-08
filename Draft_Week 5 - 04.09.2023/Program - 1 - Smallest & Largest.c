@@ -2,42 +2,30 @@
 
 int main() {
     int n;
-    
-    // Prompt the user to enter the size of the array
-    printf("Enter the size of the array: ");
+    printf("Enter the number of elements in the array: ");
     scanf("%d", &n);
-
-    // Check if the size is valid
-    if (n <= 0) {
-        printf("Invalid array size. Please enter a positive integer.\n");
-        return 1;
-    }
 
     int arr[n];
 
-    // Input elements into the array using unique keywords
-    printf("Enter %d elements separated by spaces: ", n);
+    printf("Enter %d elements separated by spaces:\n", n);
     for (int i = 0; i < n; i++) {
         scanf("%d", &arr[i]);
     }
 
-    // Initialize variables to store the largest and smallest elements
-    int largest = arr[0];
     int smallest = arr[0];
+    int largest = arr[0];
 
-    // Find the largest and smallest elements in the array
     for (int i = 1; i < n; i++) {
-        if (arr[i] > largest) {
-            largest = arr[i];
-        }
         if (arr[i] < smallest) {
             smallest = arr[i];
         }
+        if (arr[i] > largest) {
+            largest = arr[i];
+        }
     }
 
-    // Display the largest and smallest elements
-    printf("Largest element: %d\n", largest);
     printf("Smallest element: %d\n", smallest);
+    printf("Largest element: %d\n", largest);
 
     return 0;
 }
